@@ -18,11 +18,14 @@ const urlb = "//omdbapi.com/?plot=full&apikey=";
 
 form.onsubmit = (e) => {
     e.preventDefault();
+
     clearContainer();
+
     let url = urlb + apikey + "&t=" + title.value;
-    if(year.value!=""){
+
+    if(year.value!="")
         url += "&y=" + year.value;
-    }
+
     fetch(url).then(response=>{
         response.json().then(data=>{
             data.Error? alert(data.Error) : initMovieInfo(data);
@@ -35,7 +38,6 @@ const clearContainer = () => {
 }
 
 const initMovieInfo = (data) => {
-    console.log(data.Ratings);  
     movieInfo.style.display = "block";
     showTitle.textContent = data.Title;
     poster.src = data.Poster;
