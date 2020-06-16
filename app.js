@@ -37,6 +37,35 @@ const clearContainer = () => {
     movieInfo.style.display = "none";
 }
 
+const isNum = x => {
+    if(x>="0"&&x<="9")
+        return true;
+    return x==".";
+}
+
+const getColor = (source,rating) => {
+    let str = "";
+    for(let i=0;i<rating.length;i++){
+        if(isNum(rating[i])){
+            str += rating[i];
+        } else{
+            break;
+        }
+    }
+    let base10 = false;
+    if(source[0]=="I"){
+        base10 = true;
+    }
+    const value = parseFloat(str);
+    if(value<6&&base10||value<60&&!base10)
+        return "red"
+    else if(value<8&&base10||value<80&&!base10)
+        return "orange"
+    else if(value<=10&&base10||value<=100&&!base10)
+        return "green"
+    return "blue";
+}
+
 const initMovieInfo = (data) => {
     movieInfo.style.display = "block";
     showTitle.textContent = data.Title;
@@ -44,8 +73,14 @@ const initMovieInfo = (data) => {
     plot.innerHTML = data.Plot;
     genre.innerHTML = "Genres: " + data.Genre;
     ratings.innerHTML = "Ratings: ";
-    for(let rating of data.Ratings){
-        ratings.innerHTML += rating.Source + " - " + rating.Value + ", ";
+    for(let i=0;i<data.Ratings.length;i++){
+//    for(let rating of data.Ratings){
+        const rating = data.Ratings[i];
+        const color = getColor(rating.Source,rating.Value);
+        const score = `<span style='color: ${color}'>${rating.Value}</span>`;
+        ratings.innerHTML += rating.Source + " - " + score;
+        if(i<data.Ratings.length-1)
+            ratings.innerHTML += ", ";
     }
 }
 
