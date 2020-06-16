@@ -74,7 +74,6 @@ const initMovieInfo = (data) => {
     genre.innerHTML = "<strong>Genres:</strong> <br>" + data.Genre;
     ratings.innerHTML = "<strong>Ratings:</strong> <br>";
     for(let i=0;i<data.Ratings.length;i++){
-//    for(let rating of data.Ratings){
         const rating = data.Ratings[i];
         const color = getColor(rating.Source,rating.Value);
         const score = `<span style='color: ${color}'>${rating.Value}</span>`;
