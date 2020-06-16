@@ -1,0 +1,22 @@
+#movieInfo{
+    min-width: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px; solid black;
+}
+#poster{
+    width: 300px;
+}
+
+.center{
+    text-align: center; 
+}
+
+.center-div{
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    text-align: center;
+}
