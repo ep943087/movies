@@ -70,9 +70,9 @@ const initMovieInfo = (data) => {
     movieInfo.style.display = "block";
     showTitle.textContent = data.Title;
     poster.src = data.Poster;
-    plot.innerHTML = data.Plot;
-    genre.innerHTML = "Genres: " + data.Genre;
-    ratings.innerHTML = "Ratings: ";
+    plot.innerHTML = "<strong>Plot:</strong> <br>" + data.Plot;
+    genre.innerHTML = "<strong>Genres:</strong> <br>" + data.Genre;
+    ratings.innerHTML = "<strong>Ratings:</strong> <br>";
     for(let i=0;i<data.Ratings.length;i++){
 //    for(let rating of data.Ratings){
         const rating = data.Ratings[i];
@@ -80,7 +80,7 @@ const initMovieInfo = (data) => {
         const score = `<span style='color: ${color}'>${rating.Value}</span>`;
         ratings.innerHTML += rating.Source + " - " + score;
         if(i<data.Ratings.length-1)
-            ratings.innerHTML += ", ";
+            ratings.innerHTML += "  ";
     }
 }
 

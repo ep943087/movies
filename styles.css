@@ -9,9 +9,17 @@ body{
     margin: 0 auto;
     border: 1px solid black;
     padding: 20px;
+    max-height: 550px;
+    overflow-y: scroll;
 }
+
+#movieInfo div{
+    text-align: justify;
+    text-align-last: left;
+}
+
 #poster{
-    width: 300px;
+    height: 300px;
 }
 
 #genre,#ratings,#plot{
