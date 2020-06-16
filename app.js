@@ -14,7 +14,7 @@ const poster = document.querySelector('#poster');
 const plot = document.querySelector('#plot');
 const genre = document.querySelector('#genre');
 const ratings = document.querySelector('#ratings');
-const urlb = "https://omdbapi.com/?plot=full&apikey=";
+const urlb = "//omdbapi.com/?plot=full&apikey=";
 
 form.onsubmit = (e) => {
     e.preventDefault();
