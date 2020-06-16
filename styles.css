@@ -2,10 +2,15 @@
     min-width: 500px;
     max-width: 500px;
     margin: 0 auto;
-    border: 1px; solid black;
+    border: 1px solid black;
+    padding: 20px;
 }
 #poster{
     width: 300px;
+}
+
+#genre,#ratings,#plot{
+    margin: 20px 0px;
 }
 
 .center{
